@@ -1,8 +1,6 @@
-package template;
 
 /**
- * model a Contact 
- * Contact has a name & list of phonebook entries
+ * model a Contact Contact has a name & list of phonebook entries
  * 
  * Support adding phonebookEntry to a contact
  * 
@@ -11,6 +9,5 @@ package template;
  */
 
 class Contact {
-	 
 
 }
