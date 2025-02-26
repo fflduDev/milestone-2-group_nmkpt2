@@ -1,4 +1,3 @@
-package template;
 
 import java.util.HashMap;
 import java.util.List;
@@ -7,67 +6,66 @@ import java.util.concurrent.TimeUnit;
 
 public class TestHarness {
 
-	// Contact overrides hashcode && equals.  Observe collision here.
+	// Contact overrides hashcode && equals. Observe collision here.
 	private static Map<Contact, List<PhonebookEntry>> phonebook = new HashMap<>();
 	private static Contact p1, p2, p3, p4, p5;
 	private static PhonebookHandler phonebookHander;
 
-
 	public static void main(String[] args) throws InterruptedException {
 		init();
-		
-		//TODO: 2 cases:
-		//display non equality using your overriden equals method
-		//display equality using your overriden equals method
+
+		System.out.println("Hello word!");
+
+		// TODO: 2 cases:
+		// display non equality using your overriden equals method
+		// display equality using your overriden equals method
 
 		TEST_Equals(p1, p2);
 		TEST_Equals(p3, p3);
-		
-		//TODO: 2 cases:
-		//display hashcode case that demonstrates collision
-		//display hashcode case that demonstrates non- collision
+
+		// TODO: 2 cases:
+		// display hashcode case that demonstrates collision
+		// display hashcode case that demonstrates non- collision
 
 		TEST_hashcode(p1, p3);
 		TEST_hashcode(p2, p3);
 
-		//Create the phonebook handler
+		// Create the phonebook handler
 		phonebookHander = new PhonebookHandler(phonebook);
-		
-		//TODO
-		//call 
+
+		// TODO
+		// call
 		List<Contact> sortedContacts = TEST_Sort(phonebookHander);
 		TEST_Display(sortedContacts);
-		
-		//TODO
+
+		// TODO
 		// 2 cases:
-		// 1) a call to search finds the user and displays their entries 
-		//(2) a call to search does not find the user & displays some detail illustrating same
+		// 1) a call to search finds the user and displays their entries
+		// (2) a call to search does not find the user & displays some detail
+		// illustrating same
 		TEST_Search(phonebookHander, sortedContacts, "Juan");
-		 
 
 	}
 
-	// 
+	//
 	public static List<Contact> TEST_Sort(PhonebookHandler phonebookHandler) {
-		//TODO: call your phonebookHander & have it sort the contacts.  Return those.
-		
+		// TODO: call your phonebookHander & have it sort the contacts. Return those.
+
 		List<Contact> sortedContacts = phonebookHander.sortByName();
 		return sortedContacts;
 	}
 
-	
 	public static void TEST_Search(PhonebookHandler phonebookHandler, List<Contact> sortedContacts, String name) {
-		//TODO: use the sorted contacts and a name to search for.  
-	  
-		
+		// TODO: use the sorted contacts and a name to search for.
+
 		System.out.println("\n -- Search results for " + name + " -- ");
 		List<PhonebookEntry> selectedEntries = phonebookHander.binarySearch(sortedContacts, name);
 		for (PhonebookEntry entry : selectedEntries) {
-			
-			System.out.println("Entries for " + name + " " +  entry.getType() + " " + entry.getPhoneNumber());
+
+			System.out.println("Entries for " + name + " " + entry.getType() + " " + entry.getPhoneNumber());
 		}
 	}
-	
+
 	public static void TEST_Display(List<Contact> sortedContacts) {
 		phonebookHander.display(sortedContacts);
 	}
@@ -92,15 +90,15 @@ public class TestHarness {
 		}
 		System.out.println();
 	}
- 
 
-	/** TODO
+	/**
+	 * TODO
 	 * 
-	 * Build 5 contacts
-	 * Add 1-3 phonebook entries per contact.   Some must have > 1.
-	 * 'Put' into the phonebook map key-value pairs of the form contact, List<PhonebookEntries>
+	 * Build 5 contacts Add 1-3 phonebook entries per contact. Some must have > 1.
+	 * 'Put' into the phonebook map key-value pairs of the form contact,
+	 * List<PhonebookEntries>
 	 * 
-	 * Feel free to update 
+	 * Feel free to update
 	 * 
 	 * @throws InterruptedException
 	 */
