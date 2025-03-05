@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,10 +18,22 @@ class Contact {
 	public Contact(String name) {
 		this.name = name;
 		// initialize list
+		pbEntries = new ArrayList<>();
+
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String n) {
+		name = n;
 	}
 
 	public void addPhonebookEntry(String number, String type) {
 		// create a pbEntry with the incoming num/type
 		// add that pbEntry to your list of pbEntries
+		PhonebookEntry pbEntry = new PhonebookEntry(number, type);
+		pbEntries.add(pbEntry);
 	}
 }
