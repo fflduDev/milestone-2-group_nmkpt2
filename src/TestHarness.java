@@ -17,8 +17,8 @@ public class TestHarness {
 		System.out.println("Hello word!");
 
 		// TODO: 2 cases:
-		// display non equality using your overriden equals method
-		// display equality using your overriden equals method
+		// display non equality using your overridden equals method
+		// display equality using your overridden equals method
 
 		TEST_Equals(p1, p2);
 		TEST_Equals(p3, p3);
