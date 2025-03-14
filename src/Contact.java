@@ -18,7 +18,7 @@ class Contact {
 	public Contact(String name) {
 		this.name = name;
 		// initialize list
-		pbEntries = new ArrayList<>();
+		this.pbEntries = new ArrayList<>();
 
 	}
 
@@ -27,7 +27,7 @@ class Contact {
 	}
 
 	public void setName(String n) {
-		name = n;
+		this.name = n;
 	}
 
 	public void addPhonebookEntry(String number, String type) {
@@ -36,4 +36,10 @@ class Contact {
 		PhonebookEntry pbEntry = new PhonebookEntry(number, type);
 		pbEntries.add(pbEntry);
 	}
+	
+	public List<PhonebookEntry> getpbEntries(){
+		return pbEntries;
+	}
+	
+	
 }
