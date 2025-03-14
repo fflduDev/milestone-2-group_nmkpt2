@@ -26,7 +26,7 @@ class PhonebookEntry {
 	}
 
 	public void setPhoneNumber(String number) {
-		phoneNumber = number;
+		this.phoneNumber = number;
 	}
 
 	public void setType(String t) {
