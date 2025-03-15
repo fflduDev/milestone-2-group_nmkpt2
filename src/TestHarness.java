@@ -14,8 +14,6 @@ public class TestHarness {
 	public static void main(String[] args) throws InterruptedException {
 		init();
 
-		System.out.println("Hello word!");
-
 		// TODO: 2 cases:
 		// display non equality using your overridden equals method
 		// display equality using your overridden equals method
@@ -139,11 +137,11 @@ public class TestHarness {
 		System.out.println("Adding Entries to the phonebook ....\n");
 		TimeUnit.SECONDS.sleep(1);
 
-		phonebook.put(p1, p1.getPhonebookEntries()); // put ultimately calls overriden hashCode
-		phonebook.put(p2, p2.getPhonebookEntries());
-		phonebook.put(p3, p3.getPhonebookEntries());
-		phonebook.put(p4, p4.getPhonebookEntries());
-		phonebook.put(p5, p5.getPhonebookEntries());
+		phonebook.put(p1, p1.getpbEntries()); // put ultimately calls overriden hashCode
+		phonebook.put(p2, p2.getpbEntries());
+		phonebook.put(p3, p3.getpbEntries());
+		phonebook.put(p4, p4.getpbEntries());
+		phonebook.put(p5, p5.getpbEntries());
 
 	}
 

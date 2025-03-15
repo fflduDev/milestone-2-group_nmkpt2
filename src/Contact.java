@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * model a Contact Contact has a name & list of phonebook entries
@@ -41,5 +42,25 @@ class Contact {
 		return pbEntries;
 	}
 	
+	// Override equals() to compare contacts by name
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Contact contact = (Contact) obj;
+        return Objects.equals(name, contact.name);
+    }
+
+    // Override hashCode() to match equals()
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
+
+    // Override toString() for better debug output
+    @Override
+    public String toString() {
+        return "Contact{name='" + name + "'}";
+    }
 	
 }

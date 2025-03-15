@@ -10,11 +10,23 @@ public class PhonebookHandler implements iPhonebookHander {
 
 	private Map<String, Contact> phonebook = new HashMap<>();
 	
+	public PhonebookHandler(Map<Contact, List<PhonebookEntry>> phonebook2) {
+		this.phonebook = new HashMap<>();
+	    for (Map.Entry<Contact, List<PhonebookEntry>> entry : phonebook2.entrySet()) {
+	        this.phonebook.put(entry.getKey().getName(), entry.getKey()); // Store by name
+	    }
+	}
+
 	@Override
 	public List<Contact> sortByName() {
 		
 		List<Contact> contacts = new ArrayList<>(phonebook.values());		
-		mergeSort(contacts,0,contacts.size()-1);
+		mergeSort(contacts, 0, contacts.size() - 1);
+		// Debugging output: check sorted names
+	    /*System.out.println("Sorted Contacts:");
+	    for (Contact c : contacts) {
+	        System.out.println(c.getName());
+	    }*/
 		return contacts;
 	}
 	
@@ -68,24 +80,24 @@ public class PhonebookHandler implements iPhonebookHander {
 	public List<PhonebookEntry> binarySearch(List<Contact> sortedContacts, String name) {
 		List<PhonebookEntry> entries = new ArrayList<>();
 		int left = 0;
-		int right = sortedContacts.size()-1;
+		int right = sortedContacts.size() - 1;
 		
-		while(left<= right) {
-			int mid = left + (right-left)/2;
+		while (left <= right) {
+			int mid = left + (right - left) / 2;
 			Contact midContact = sortedContacts.get(mid);
-			int comparison = midContact.getName().compareTo(name);
+			int comparison = midContact.getName().compareToIgnoreCase(name);
 			
-			if(comparison == 0) {
+			if (comparison == 0) {
 				entries = midContact.getpbEntries();
 				break;
-			}else if(comparison<0) {
-				left = mid+1;
-			}else {
-				right = mid-1;
+			} else if (comparison < 0) {
+				left = mid + 1;
+			} else {
+				right = mid - 1;
 			}
 		}
 		if (entries.isEmpty()) {
-			System.out.println(name + "not found");
+			System.out.println(name + " not found");
 		}
 		return entries;
 	}
