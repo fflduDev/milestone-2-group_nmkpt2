@@ -30,6 +30,10 @@ class Contact {
 	public void setName(String n) {
 		this.name = n;
 	}
+	
+	public List<PhonebookEntry> getEntry() {
+		return pbEntries;
+	}
 
 	public void addPhonebookEntry(String number, String type) {
 		// create a pbEntry with the incoming num/type
@@ -54,13 +58,21 @@ class Contact {
     // Override hashCode() to match equals()
     @Override
     public int hashCode() {
-        return Objects.hash(name);
+    	if(name.length() <= 3) {
+    		return 0;
+    	}
+    	return 1;
     }
 
     // Override toString() for better debug output
     @Override
     public String toString() {
-        return "Contact{name='" + name + "'}";
+        String output = "Name: " + name + ", " + "Phone Number(s): [";
+		for (PhonebookEntry entry : getpbEntries()) {
+			output = output + entry.getPhoneNumber() + " " +  entry.getType() + ", ";
+		}
+        
+        return output + "]";
     }
 	
 }

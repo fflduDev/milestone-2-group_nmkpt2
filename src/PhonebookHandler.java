@@ -104,11 +104,9 @@ public class PhonebookHandler implements iPhonebookHander {
 
 	@Override
 	public void display(List<Contact> sortedContacts) {
-		for(Contact contact :sortedContacts) {
-			System.out.println("name: " + contact.getName());
-			for (PhonebookEntry entry : contact.getpbEntries()) {
-				System.out.println(entry.getType()+ entry.getPhoneNumber());
-			}
+		System.out.println("Sorted Phonebook (Bubble Sort)");
+		for(Contact contact : sortedContacts) {
+			System.out.println(contact.getName());
 		}
 	}
 
